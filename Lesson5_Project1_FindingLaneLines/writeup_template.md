@@ -1,9 +1,5 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Finding Lane Lines on the Road**
@@ -23,22 +19,28 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+**My pipeline for Lane Finding**
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+1. Find edges of image by applying Canny Edge Detection
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+- Convert the image to grayscale
+- Do convolution with Gaussian Filter(5 X 5) to reduce the noise
+- Find edges in the image using Canny Edge Detection Algorithm
 
-![alt text][image1]
+2. Erase the edges out of the region of interest
+
+3. Find straight lines using Hough Transform
+
+4. Seperate the points of stright lines that is found by Hough Transform in half(left-side, right-side)
+
+5. Calculate the straight line by using Least Square Fitting(cv2.fitline function)
+
+6. Draw the both side lines in the region of interest
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+1.
 
 ### 3. Suggest possible improvements to your pipeline
 
